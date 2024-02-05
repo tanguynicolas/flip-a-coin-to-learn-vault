@@ -97,6 +97,7 @@ button{
   background-color: #e1e0ee;
   border-color: #e1e0ee;
   color: #1c1c1c;
+  cursor: not-allowed;
 }
 #reset-button{
   background-color: #1c1c1c;
