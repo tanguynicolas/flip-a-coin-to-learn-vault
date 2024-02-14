@@ -33,6 +33,7 @@ pip freeze > requirements.txt
 mkdir src && cd src
 
 django-admin startproject CoinToFlip .
+python manage.py startapp Game
 
 python manage.py migrate
 python manage.py runserver
