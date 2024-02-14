@@ -17,3 +17,33 @@ Une fois 5 faces réalisé, un lourd secret sera révélé à l'utilisateur.
 L'application sera conteneurisée et un chart helm sera réalisé.
 
 Le but pédagogique sera de sécuriser les accès à la base de donnée via un secret dynamique et également de mettre en sécurité dans Vault, le secret que révèlera l'application.
+
+# Initial setup
+
+```shell
+python -m venv .pyenv
+source .pyenv/bin/activate
+
+pip install django
+pip freeze > requirements.txt
+```
+
+```shell
+mkdir src && cd src
+
+django-admin startproject coin-to-flip .
+
+python manage.py migrate
+python manage.py runserver
+```
+
+# Setup
+
+```shell
+python -m venv .pyenv
+source .pyenv/bin/activate
+
+pip install -r requirements.txt
+
+python manage.py runserver
+```
