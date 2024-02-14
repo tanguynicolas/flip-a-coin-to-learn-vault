@@ -32,7 +32,7 @@ pip freeze > requirements.txt
 ```shell
 mkdir src && cd src
 
-django-admin startproject coin-to-flip .
+django-admin startproject CoinToFlip .
 
 python manage.py migrate
 python manage.py runserver
