@@ -11,6 +11,33 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from environs import Env
+
+def read_secret(env_var_to_path_to_secret, env_var_to_secret):
+    """
+    Get the secret content of the specified file if it exists,
+    otherwise, get the secret value from the environment variables.
+
+    Parameters:
+    - env_var_to_secret (str): Name of the environment variable containing the secret.
+    - env_var_to_path_to_secret (str): Name of the environment variable containing the path of the file which contain the secret.
+
+    Returns:
+    - str: The secret content of the file or the value from the environment variable.
+    """
+    # Retrieve file path from environment variable
+    file_path = env.str(env_var_to_path_to_secret, default='')
+
+    # File existence check
+    if Path(file_path).is_file():
+        # Return file content
+        return Path(file_path).read_text().strip()
+    else:
+        # Otherwise, return the value of the environment variable
+        return env.str(env_var_to_secret, default='')
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +47,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hi_i_am_hidden'
+SECRET_KEY = read_secret('SECRET_KEY_FILE', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = []
 

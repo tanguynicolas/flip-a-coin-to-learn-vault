@@ -25,6 +25,7 @@ python -m venv .pyenv
 source .pyenv/bin/activate
 
 pip install django
+pip install 'environs[django]'
 pip freeze > requirements.txt
 ```
 
