@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flip a Coin</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'game/img/favicon.ico' %}">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'game/css/style.css' %}">
 </head>
@@ -16,10 +17,10 @@
         </div>
         <div class="coin" id="coin">
             <div class="heads">
-                <img src="heads.svg" alt="">
+                <img src="{% static 'game/img/heads.svg' %}" alt="">
             </div>
             <div class="tails">
-                <img src="tails.svg" alt="">
+                <img src="{% static 'game/img/tails.svg' %}" alt="">
             </div>
         </div>
         <div class="buttons">
