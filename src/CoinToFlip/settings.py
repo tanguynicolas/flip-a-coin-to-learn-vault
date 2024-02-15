@@ -32,9 +32,11 @@ def read_secret(env_var_to_path_to_secret, env_var_to_secret):
     if Path(file_path).is_file():
         # Return file content
         return Path(file_path).read_text().strip()
-    else:
+    elif env.str(env_var_to_secret, default=''):
         # Otherwise, return the value of the environment variable
         return env.str(env_var_to_secret, default='')
+    else:
+        raise Exception(f"Neither variable {env_var_to_path_to_secret} nor {env_var_to_secret} has been supplied, or the path indicated in variable {env_var_to_path_to_secret} is invalid.")
 
 env = Env()
 env.read_env()
