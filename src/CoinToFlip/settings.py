@@ -102,16 +102,7 @@ WSGI_APPLICATION = 'CoinToFlip.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'flip-a-coin',
-        'USER': 'user',
-        'PASSWORD': 'user',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
-}
+DATABASES = {"default": env.dj_db_url("DATABASE_URL")}
 
 
 # Password validation
