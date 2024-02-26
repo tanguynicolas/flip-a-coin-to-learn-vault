@@ -26,6 +26,7 @@ source .pyenv/bin/activate
 
 pip install django
 pip install 'environs[django]'
+pip install psycopg2-binary
 pip freeze > requirements.txt
 ```
 
